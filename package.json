@@ -18,5 +18,10 @@
   "devDependencies": {
     "@types/node": "^24.2.0",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "boxen": "^8.0.1",
+    "chalk": "^5.5.0",
+    "figures": "^6.1.0"
   }
 }

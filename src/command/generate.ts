@@ -14,7 +14,7 @@ export function createExampleFromEnv(force = false) {
     }
 
     if (fs.existsSync(outputPath) && !force) {
-        console.error(`${output} already exists. Use --force to overwrite.`);
+        console.error(`${output} already exists.`);
         process.exit(1);
     }
 
