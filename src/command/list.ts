@@ -42,3 +42,23 @@ export function listEnvKeys(options: ListOptions) {
         }
     }
 }
+
+export function testEnvKeys(options: ListOptions): string[] {
+    const filePath = path.resolve(process.cwd(), options.file);
+
+    if (!fs.existsSync(filePath)) {
+        throw new Error(`${options.file} not found`);
+    }
+
+    const content = fs.readFileSync(filePath, "utf-8");
+
+    return content
+        .split("\n")
+        .map(line => line.trim())
+        .filter(line => line && !line.startsWith("#")) 
+        .map(line => {
+            const [key, ...rest] = line.split("=");
+            if (!key) return "";
+            return options.withValues ? `${key}=${rest.join("=")}` : key;
+        });
+}

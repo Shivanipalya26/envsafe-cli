@@ -9,15 +9,29 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "pnpm build && node ./dist/index.js"
+    "start": "pnpm build && node ./dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "vitest",
+    "prepare": "pnpm build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+   "keywords": [
+    "cli",
+    "dotenv",
+    "env",
+    "environment",
+    "variables",
+    "validation",
+    "schema",
+    "config"
+  ],
+  "author": "Shivani Palya shivanipalya2420@gmail.com",
+  "license": "MIT",
   "packageManager": "pnpm@10.6.3",
   "devDependencies": {
     "@types/node": "^24.2.0",
-    "typescript": "^5.9.2"
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "boxen": "^8.0.1",
