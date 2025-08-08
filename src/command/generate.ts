@@ -9,6 +9,10 @@ export function createExampleFromEnv(force = false) {
     const outputPath = path.resolve(process.cwd(), output);
 
     if (!fs.existsSync(inputPath)) {
+        if (process.env.CI) {
+            console.warn(`⚠️  ${input} not found, skipping in CI...`);
+            return;
+        }
         console.error(`${input} not found`);
         process.exit(1);
     }
